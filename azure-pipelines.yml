@@ -54,15 +54,15 @@ stages:
       - task: KubernetesManifest@0
         inputs:
           action: 'createSecret'
-          kubernetesServiceConnection: 'Kubernetes Connection'
+          kubernetesServiceConnection: 'Projectdev'
           namespace: 'default'
           secretType: 'dockerRegistry'
           secretName: '$(hubSecret)'
-          dockerRegistryEndpoint: 'Docker Hub connection'
+          dockerRegistryEndpoint: 'Dockerconnect'
       - task: KubernetesManifest@0
         inputs:
           action: 'deploy'
-          kubernetesServiceConnection: 'Kubernetes Connection'
+          kubernetesServiceConnection: 'Projectdev'
           namespace: 'default'
           manifests: |
             $(Pipeline.Workspace)/manifest/deployment.yaml
