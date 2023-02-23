@@ -6,7 +6,7 @@ resources:
 - repo: self
 
 variables:
-  imageRepo: pydocproject1
+  imageRepo: shashank08/pydocproject1
   tag: latest
 
 stages:
