@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-python-app
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: my-python-app
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: my-python-app
+    spec:
+      containers:
+      - name: pydocproject1
+        image: docker.io/shashank08/pydocproject1:${{BUILD.BUILDID}}
+        ports:
+        - containerPort: 5000
+          name: my-python-app
+        resources:
+          limits:
+            cpu: 500m
+            memory: 512Mi
+          requests:
+            cpu: 200m
+            memory: 256Mi
+      restartPolicy: Always
